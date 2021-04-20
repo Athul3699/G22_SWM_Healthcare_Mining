@@ -1,5 +1,5 @@
 ------------Solr--------------------
-System used: Virtual Box Ubuntu 18, 10gb ram, 4 cpu cores
+System used: MacOS Catalina, 8gb ram, 2 cpu cores
 Port used: 8983, 7574, 9983
 Collection: "metamapData" is the ontology given and "allData" is the scrapping data (converted to .csv)
 Run: "solr_setup.sh" script to start solr and "solr_stop.sh" script to stop solr. Solr needs to be running for the code to work
@@ -44,16 +44,6 @@ https://www.tutorialspoint.com/apache_solr/apache_solr_basic_commands.htm
 https://factorpad.com/tech/solr/reference/solr-start.html
 
 
+# Running the server and the UI
+IndexingSearching % python3 server.py
 
-
-----------------Coding--------------------------
-
-The search_request script consists of three queries involving Solr.
-    Query 1: Given a search term, return posts in order of relevance
-    Query 2: Given a post number, return related symptoms/treatments/drugs/body parts
-    Query 3: Given a post URL, return the original post, replies, and subreplies
-
-Below are the steps in which the user interface would use these queries:
-    1. The user inputs a search term and clicks a button to submit
-    2. The results of query 2 are presented to the user as optional filters
-    3. The results of query 3 are presented as the final search results
