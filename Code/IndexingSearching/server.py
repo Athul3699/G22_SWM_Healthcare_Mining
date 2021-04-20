@@ -2,8 +2,8 @@
 # An object of Flask class is our WSGI application.
 from flask import Flask, request, render_template
 from flask_cors import CORS, cross_origin
-from IndexingSearching.search_requests import search
-from IndexingSearching.search_requests_rank_sort import search_weighted
+from search_requests import search
+from search_requests_rank_sort import search_weighted
 
 # Flask constructor takes the name of
 # current module (_name_) as argument.

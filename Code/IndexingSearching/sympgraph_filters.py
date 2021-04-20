@@ -1,4 +1,4 @@
-from IndexingSearching.create_rank import getPostWiseSymptoms
+from create_rank import getPostWiseSymptoms
 
 symptom_dict = dict()
 

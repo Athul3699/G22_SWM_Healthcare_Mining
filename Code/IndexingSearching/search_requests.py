@@ -2,7 +2,7 @@ from urllib.request import urlopen
 from urllib.parse import quote_plus
 import json
 import ast
-from IndexingSearching.sympgraph_filters import refine_filters
+from sympgraph_filters import refine_filters
 
 
 def search(query_term):
