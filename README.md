@@ -5,7 +5,7 @@
 
 # Setting up Apache Solr
 
-  #cd G22_SWM_Healthcare_Mining/code/IndexingSearching/solr-8.8.1
+  cd G22_SWM_Healthcare_Mining/code/IndexingSearching/solr-8.8.1
 
   bin/solr start -c -p 8983 -s example/cloud/node1/solr
 
