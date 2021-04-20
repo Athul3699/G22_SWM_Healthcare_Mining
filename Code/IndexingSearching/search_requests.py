@@ -74,7 +74,7 @@ def search(query_term):
         final_results_all = []
         for url in unique_url:
             # return upto 10 results by default
-            with urlopen('http://localhost:8983/solr/allData/select?q=url%3A%22{}%22'.format(url)) as u:
+            with urlopen('http://localhost:8983/solr/allData/select?q=url%3A%22{}%22&rows=800'.format(url)) as u:
                 result3 = json.loads(u.read().decode())
 
             s = set()
@@ -96,7 +96,7 @@ def search(query_term):
             # 'replies' format: {'content', 'sub_replies}
             final_results_all.append(final_results)
 
-        print(final_results_all)
+        # print(final_results_all)
 
         # print out final result
         for url_res in final_results_all:
@@ -107,15 +107,27 @@ def search(query_term):
                 # print("Url: {}".format(url))
                 # print("Content: {}".format(content))
                 for reply in replies:
-                    print("")
+                    # print("\tReply: {}".format(reply['content']))
                     for subreply in reply['sub_replies']:
                         if subreply != '':
                             print("")
-                print("\n")
+                print("")
             # print('\n------------------------------------------------------------------------')
+
+        print("1")
 
         refined_symptoms = refine_filters(symptom_list)
 
-        # print(refined_symptoms)
+        # print("-------------------------xxxxxxxxxx-------------------------------------xxxxxxx-----------------------")
+
+        # print("Refined Symptoms: ", refined_symptoms)
+
+        # print("final results: ", len(final_results_all))
+        # print("final results priunt: ", final_results_all)
+
+        # print("-------------------------xxxxxxxxxx-------------------------------------xxxxxxx-----------------------")
 
         return [final_results_all, [{"title": "Symptoms", "data": list(set(refined_symptoms))}, {"title": "Body Parts", "data": list(set(bodypart_list))}, {"title": "Medications", "data": list(set(drug_list))}, {"title": "Treatments", "data": list(set(treatment_list))}]]
+
+
+# print(search('fever'))

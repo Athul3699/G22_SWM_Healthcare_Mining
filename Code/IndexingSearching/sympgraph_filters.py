@@ -9,7 +9,7 @@ symptom_dict = getPostWiseSymptoms()
 
 
 def refine_filters(list1):
-    print(len(symptom_dict.keys()))
+    # print(len(symptom_dict.keys()))
 
     symptom_set = set(list1)
 
@@ -27,15 +27,20 @@ def refine_filters(list1):
                 refined_symptom_list.append(
                     (symptom, item, symptom_dict[symptom][item]))
 
-    sorted(refined_symptom_list)
+    # sorted(refined_symptom_list)
     sorted_refined_symptom_list = sorted(
         refined_symptom_list, key=lambda i: i[2], reverse=True)
 
     refined_filter_set = set()
 
+    # print("sorted_refined_symptom_list: ", sorted_refined_symptom_list)
+
     for item in sorted_refined_symptom_list:
 
+        print("refined_filter_set len: ", len(refined_filter_set))
+
         if len(refined_filter_set) >= 6:
+            print("break")
             break
         if item[0] != 'Disease':
             refined_filter_set.add(item[0])
@@ -43,5 +48,7 @@ def refine_filters(list1):
             refined_filter_set.add(item[1])
 
     refined_filter_set_list = list(refined_filter_set)
+
+    # print("refined_filter_set_list: ", refined_filter_set_list)
 
     return refined_filter_set_list

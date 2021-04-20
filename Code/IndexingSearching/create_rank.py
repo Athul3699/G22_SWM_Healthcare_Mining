@@ -1,8 +1,10 @@
 import csv
 from collections import defaultdict, Counter
 
+
 def getPostWiseSymptoms():
     file = 'SympGraph_Symptoms.csv'
+
     rank_dict = defaultdict(list)
     final_list = defaultdict()
     with open(file) as f:
@@ -15,7 +17,8 @@ def getPostWiseSymptoms():
             while count:
                 rank_dict[source_post_number].append(destination_post_number)
                 count -= 1
-            final_list[source_post_number] = Counter(rank_dict[source_post_number])
+            final_list[source_post_number] = Counter(
+                rank_dict[source_post_number])
     return final_list
 
 # if __name__ == "__main__":

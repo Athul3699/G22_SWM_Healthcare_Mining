@@ -76,7 +76,7 @@ def search_weighted(query_term):
 
         for url in unique_url:
             # return upto 10 results by default
-            with urlopen('http://localhost:8983/solr/allData/select?q=url%3A%22{}%22'.format(url)) as u:
+            with urlopen('http://localhost:8983/solr/allData/select?q=url%3A%22{}%22&rows=800'.format(url)) as u:
                 result3 = json.loads(u.read().decode())
 
             s = set()
