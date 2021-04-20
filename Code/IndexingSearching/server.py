@@ -22,19 +22,19 @@ def hello_world():
 # def home_api():
 #     return "From Home"
 
+
 @app.route('/search', methods=["GET"])
 @cross_origin()
 def search_api():
-    if request.method == "GET":        
-        print(request.args)
-        searchTerm = request.args.get("searchTerm") + request.args.get("selectedFilters")
+    if request.method == "GET":
+        # print(request.args)
+        searchTerm = request.args.get(
+            "searchTerm") + request.args.get("selectedFilters")
         # print(searchTerm)
         # # term = input("Enter search term")
         results, filters = search(searchTerm)
         sorted_results = search_weighted(searchTerm)
-        return {"articles": results, "filters":filters, "sorted_results": sorted_results}
-
-
+        return {"articles": results, "filters": filters, "sorted_results": sorted_results}
 
 
 # main driver function

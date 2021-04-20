@@ -13,13 +13,14 @@ def search(query_term):
         runLoop = False
 
         # term = quote_plus(input('Enter search term: '))
-        term = query_term;
+        term = query_term
         #######################################################################
         # Query 1: Search for a term across all posts
         #######################################################################
         # uncomment next line to return up to 800 results
         # with urlopen('http://localhost:8983/solr/metamapData/select?q={}&rows=800'.format(term)) as url:
-        with urlopen('http://localhost:8983/solr/metamapData/select?q={}'.format(term)) as u: #return upto 10 results by default
+        # return upto 10 results by default
+        with urlopen('http://localhost:8983/solr/metamapData/select?q={}&rows=70'.format(term)) as u:
             result1 = json.loads(u.read().decode())
 
         # post_num is the list of post numbers (used for Query 2)
@@ -46,7 +47,7 @@ def search(query_term):
         drug_list = []
         bodypart_list = []
         for num in unique_num:
-            #return upto 10 results by default
+            # return upto 10 results by default
             with urlopen('http://localhost:8983/solr/metamapData/select?q=PostNumber%3A{}'.format(num)) as u:
                 result2 = json.loads(u.read().decode())
 
@@ -72,7 +73,8 @@ def search(query_term):
         unique_url = list(set(post_url))
         final_results_all = []
         for url in unique_url:
-            with urlopen('http://localhost:8983/solr/allData/select?q=url%3A%22{}%22'.format(url)) as u: #return upto 10 results by default
+            # return upto 10 results by default
+            with urlopen('http://localhost:8983/solr/allData/select?q=url%3A%22{}%22'.format(url)) as u:
                 result3 = json.loads(u.read().decode())
 
             s = set()
@@ -87,15 +89,14 @@ def search(query_term):
                 replies = res['replies'][0]
                 replies_list = ast.literal_eval(replies)
 
-                final_results.append({'url': url, 'content': content, 'replies': replies_list})
+                final_results.append(
+                    {'url': url, 'content': content, 'replies': replies_list})
 
             # Format of final_results_all: [{url1, content1, replies1}, {url2, content2, replies2}, ...]
             # 'replies' format: {'content', 'sub_replies}
             final_results_all.append(final_results)
 
         print(final_results_all)
-
-
 
         # print out final result
         for url_res in final_results_all:
@@ -106,23 +107,15 @@ def search(query_term):
                 # print("Url: {}".format(url))
                 # print("Content: {}".format(content))
                 for reply in replies:
-                    print("\tReply: {}".format(reply['content']) )
+                    print("")
                     for subreply in reply['sub_replies']:
                         if subreply != '':
-                            print("\t\tSubreply: {}".format(subreply))
+                            print("")
                 print("\n")
             # print('\n------------------------------------------------------------------------')
-
-
-
 
         refined_symptoms = refine_filters(symptom_list)
 
         # print(refined_symptoms)
 
-
-        return [final_results_all, [{"title":"Symptoms", "data": list(set(refined_symptoms))}, {"title":"Body Parts", "data": list(set(bodypart_list))}, {"title":"Medications", "data": list(set(drug_list))}, {"title":"Treatments", "data": list(set(treatment_list))}]]
-
-
-
-# print(search('fever'))
+        return [final_results_all, [{"title": "Symptoms", "data": list(set(refined_symptoms))}, {"title": "Body Parts", "data": list(set(bodypart_list))}, {"title": "Medications", "data": list(set(drug_list))}, {"title": "Treatments", "data": list(set(treatment_list))}]]

@@ -4,7 +4,6 @@ import json
 import ast
 
 
-
 def search_weighted(query_term):
     runLoop = True
 
@@ -21,7 +20,8 @@ def search_weighted(query_term):
         #######################################################################
         # uncomment next line to return up to 800 results
         # with urlopen('http://localhost:8983/solr/metamapData/select?q={}&rows=800'.format(term)) as url:
-        with urlopen('http://localhost:8983/solr/metamapData/select?q={}'.format(term)) as u: #return upto 10 results by default
+        # return upto 10 results by default
+        with urlopen('http://localhost:8983/solr/metamapData/select?q={}&rows=70'.format(term)) as u:
             result1 = json.loads(u.read().decode())
 
         # post_num is the list of post numbers (used for Query 2)
@@ -48,7 +48,7 @@ def search_weighted(query_term):
         drug_list = []
         bodypart_list = []
         for num in unique_num:
-            #return upto 10 results by default
+            # return upto 10 results by default
             with urlopen('http://localhost:8983/solr/metamapData/select?q=PostNumber%3A{}'.format(num)) as u:
                 result2 = json.loads(u.read().decode())
 
@@ -75,7 +75,8 @@ def search_weighted(query_term):
         final_results_all = []
 
         for url in unique_url:
-            with urlopen('http://localhost:8983/solr/allData/select?q=url%3A%22{}%22'.format(url)) as u: #return upto 10 results by default
+            # return upto 10 results by default
+            with urlopen('http://localhost:8983/solr/allData/select?q=url%3A%22{}%22'.format(url)) as u:
                 result3 = json.loads(u.read().decode())
 
             s = set()
@@ -90,18 +91,15 @@ def search_weighted(query_term):
                 replies = res['replies'][0]
                 replies_list = ast.literal_eval(replies)
 
-                final_results.append({'url': url, 'content': content, 'replies': replies_list, 'rank': len(replies_list)})
+                final_results.append(
+                    {'url': url, 'content': content, 'replies': replies_list, 'rank': len(replies_list)})
 
             # Format of final_results_all: [{url1, content1, replies1}, {url2, content2, replies2}, ...]
             # 'replies' format: {'content', 'sub_replies}
 
-
             final_results_all.append(final_results)
 
-
-
-
-        #print(final_results_all)
+        # print(final_results_all)
 
         #unique_final_results_all = set(final_results_all)
 
@@ -112,15 +110,14 @@ def search_weighted(query_term):
         # print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
         #
 
-
-        final_results_all_sorted = sorted(final_results_all, key = lambda i:i[0]['rank'],reverse = True)
+        final_results_all_sorted = sorted(
+            final_results_all, key=lambda i: i[0]['rank'], reverse=True)
 
         # print(final_results_all_sorted)
         # print(len(final_results_all_sorted))
         #
         # print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
         #
-
 
         # print out final result
         for url_res in final_results_all_sorted:
@@ -144,5 +141,3 @@ def search_weighted(query_term):
             # print('\n------------------------------------------------------------------------')
 
         return final_results_all_sorted
-
-
