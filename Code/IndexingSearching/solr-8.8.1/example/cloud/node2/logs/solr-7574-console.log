@@ -1,13 +1,19 @@
 Java HotSpot(TM) 64-Bit Server VM warning: -XX:+UseLargePages is disabled in this release.
-2021-04-20 05:22:24.845 INFO  (main) [   ] o.e.j.u.log Logging initialized @1244ms to org.eclipse.jetty.util.log.Slf4jLog
-2021-04-20 05:22:25.091 INFO  (main) [   ] o.e.j.s.Server jetty-9.4.34.v20201102; built: 2020-11-02T14:15:39.302Z; git: e46af88704a893fc12cb0e3bf46e2c7b48a009e7; jvm 1.8.0_241-b07
-2021-04-20 05:22:25.118 INFO  (main) [   ] o.e.j.d.p.ScanningAppProvider Deployment monitor [file:///Users/athulpramod/Desktop/G22_SWM_Healthcare_Mining/Code/IndexingSearching/solr-8.8.1/server/contexts/] at interval 0
-2021-04-20 05:22:25.576 INFO  (main) [   ] o.e.j.w.StandardDescriptorProcessor NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
-2021-04-20 05:22:25.588 INFO  (main) [   ] o.e.j.s.session DefaultSessionIdManager workerName=node0
-2021-04-20 05:22:25.588 INFO  (main) [   ] o.e.j.s.session No SessionScavenger set, using defaults
-2021-04-20 05:22:25.590 INFO  (main) [   ] o.e.j.s.session node0 Scavenging every 600000ms
-2021-04-20 05:22:25.676 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
-2021-04-20 05:22:25.685 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter  ___      _       Welcome to Apache Solr™ version 8.8.1
-2021-04-20 05:22:25.685 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter / __| ___| |_ _   Starting in cloud mode on port 7574
-2021-04-20 05:22:25.685 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter \__ \/ _ \ | '_|  Install dir: /Users/athulpramod/Desktop/G22_SWM_Healthcare_Mining/Code/IndexingSearching/solr-8.8.1
-2021-04-20 05:22:25.686 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter |___/\___/_|_|    Start time: 2021-04-20T05:22:25.686Z
+2021-04-20 06:31:44.455 INFO  (main) [   ] o.e.j.u.log Logging initialized @2555ms to org.eclipse.jetty.util.log.Slf4jLog
+2021-04-20 06:31:44.815 INFO  (main) [   ] o.e.j.s.Server jetty-9.4.34.v20201102; built: 2020-11-02T14:15:39.302Z; git: e46af88704a893fc12cb0e3bf46e2c7b48a009e7; jvm 1.8.0_241-b07
+2021-04-20 06:31:44.850 INFO  (main) [   ] o.e.j.d.p.ScanningAppProvider Deployment monitor [file:///Users/athulpramod/Desktop/X_Project/G22_SWM_Healthcare_Mining/Code/IndexingSearching/solr-8.8.1/server/contexts/] at interval 0
+2021-04-20 06:31:45.515 INFO  (main) [   ] o.e.j.w.StandardDescriptorProcessor NO JSP Support for /solr, did not find org.apache.jasper.servlet.JspServlet
+2021-04-20 06:31:45.549 INFO  (main) [   ] o.e.j.s.session DefaultSessionIdManager workerName=node0
+2021-04-20 06:31:45.549 INFO  (main) [   ] o.e.j.s.session No SessionScavenger set, using defaults
+2021-04-20 06:31:45.555 INFO  (main) [   ] o.e.j.s.session node0 Scavenging every 600000ms
+2021-04-20 06:31:45.645 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
+2021-04-20 06:31:45.651 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter  ___      _       Welcome to Apache Solr™ version 8.8.1
+2021-04-20 06:31:45.651 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter / __| ___| |_ _   Starting in cloud mode on port 7574
+2021-04-20 06:31:45.651 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter \__ \/ _ \ | '_|  Install dir: /Users/athulpramod/desktop/X_Project/G22_SWM_Healthcare_Mining/Code/IndexingSearching/solr-8.8.1
+2021-04-20 06:31:45.653 INFO  (main) [   ] o.a.s.s.SolrDispatchFilter |___/\___/_|_|    Start time: 2021-04-20T06:31:45.652Z
+Exception in thread "OverseerCollectionConfigSetProcessor-72063211267686402-192.168.0.232:7574_solr-n_0000000039" org.apache.solr.common.AlreadyClosedException
+	at org.apache.solr.common.cloud.ZkCmdExecutor.retryOperation(ZkCmdExecutor.java:69)
+	at org.apache.solr.common.cloud.SolrZkClient.getData(SolrZkClient.java:351)
+	at org.apache.solr.cloud.OverseerTaskProcessor.amILeader(OverseerTaskProcessor.java:442)
+	at org.apache.solr.cloud.OverseerTaskProcessor.run(OverseerTaskProcessor.java:161)
+	at java.lang.Thread.run(Thread.java:748)

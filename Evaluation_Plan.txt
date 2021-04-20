@@ -1,0 +1,11 @@
+                    *** Apache Solr ***
+
+1. The articles returned to the UI are based on the user keywords and filters. However, the articles returned are in a random fashion. The articles returned to the UI are based on the user keywords and filters. However, the articles returned are in a random fashion.
+2. The symptoms filters generated in the UI are completely based on the fetched articles. 
+3. System overhead is low because of the lack of co-occurrence csv to compare.
+
+
+        *** Relevance-Based Ranking Algorithm & SympGraph ***
+1. The articles returned in the UI are indexed based on the relevance of article. So, the user gets the most relevant articles than random articles.
+2. The symptoms filters generated in the UI even though based on fetched articles, takes into account the co-occurrence between different symptoms and only highly correlated symptoms based on the SympGraph weights is displayed.
+3. Due to the need of symptom-symptom weight pair in a csv file, the system needs to lookup the correlation between symptoms each time the system retrieves articles, which is an overhead.
