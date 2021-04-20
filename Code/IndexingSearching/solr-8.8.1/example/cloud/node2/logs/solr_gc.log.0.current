@@ -1508,4 +1508,50 @@ Heap after GC invocations=17 (full 0):
 2021-04-19T21:41:07.568+0700: 355.995: Total time for which application threads were stopped: 0.0002541 seconds, Stopping threads took: 0.0000333 seconds
 2021-04-19T21:41:08.572+0700: 356.998: Total time for which application threads were stopped: 0.0009187 seconds, Stopping threads took: 0.0000281 seconds
 2021-04-19T21:41:17.588+0700: 366.014: Total time for which application threads were stopped: 0.0004442 seconds, Stopping threads took: 0.0000485 seconds
-2021-04-19T21:41:53.669+0700: 40
+2021-04-19T21:41:53.669+0700: 402.094: Total time for which application threads were stopped: 0.0012408 seconds, Stopping threads took: 0.0000559 seconds
+2021-04-19T21:41:55.377+0700: 403.802: Total time for which application threads were stopped: 0.0003261 seconds, Stopping threads took: 0.0000418 seconds
+2021-04-19T21:41:56.382+0700: 404.807: Total time for which application threads were stopped: 0.0003357 seconds, Stopping threads took: 0.0000819 seconds
+2021-04-19T21:42:55.407+0700: 463.831: Total time for which application threads were stopped: 0.0002987 seconds, Stopping threads took: 0.0000405 seconds
+2021-04-19T21:42:56.408+0700: 464.831: Total time for which application threads were stopped: 0.0002871 seconds, Stopping threads took: 0.0000474 seconds
+2021-04-19T21:43:09.429+0700: 477.851: Total time for which application threads were stopped: 0.0003001 seconds, Stopping threads took: 0.0000486 seconds
+{Heap before GC invocations=18 (full 0):
+ garbage-first heap   total 524288K, used 197248K [0x00000007a0000000, 0x00000007a0101000, 0x00000007c0000000)
+  region size 1024K, 94 young (96256K), 2 survivors (2048K)
+ Metaspace       used 58665K, capacity 61242K, committed 62208K, reserved 1103872K
+  class space    used 6952K, capacity 7458K, committed 7680K, reserved 1048576K
+2021-04-19T21:43:55.472+0700: 523.894: [GC pause (G1 Evacuation Pause) (young)
+Desired survivor size 6291456 bytes, new threshold 15 (max 15)
+- age   1:     869888 bytes,     869888 total
+, 0.0143015 secs]
+   [Parallel Time: 12.8 ms, GC Workers: 4]
+      [GC Worker Start (ms): Min: 523894.0, Avg: 523894.0, Max: 523894.0, Diff: 0.0]
+      [Ext Root Scanning (ms): Min: 0.8, Avg: 0.9, Max: 1.1, Diff: 0.3, Sum: 3.7]
+      [Update RS (ms): Min: 4.4, Avg: 4.5, Max: 4.6, Diff: 0.2, Sum: 18.0]
+         [Processed Buffers: Min: 5, Avg: 10.2, Max: 18, Diff: 13, Sum: 41]
+      [Scan RS (ms): Min: 0.0, Avg: 0.1, Max: 0.1, Diff: 0.1, Sum: 0.2]
+      [Code Root Scanning (ms): Min: 0.0, Avg: 0.5, Max: 1.0, Diff: 0.9, Sum: 1.9]
+      [Object Copy (ms): Min: 6.2, Avg: 6.7, Max: 7.0, Diff: 0.8, Sum: 26.9]
+      [Termination (ms): Min: 0.0, Avg: 0.0, Max: 0.0, Diff: 0.0, Sum: 0.0]
+         [Termination Attempts: Min: 1, Avg: 1.0, Max: 1, Diff: 0, Sum: 4]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.0, Max: 0.0, Diff: 0.0, Sum: 0.0]
+      [GC Worker Total (ms): Min: 12.7, Avg: 12.7, Max: 12.7, Diff: 0.0, Sum: 50.8]
+      [GC Worker End (ms): Min: 523906.7, Avg: 523906.7, Max: 523906.7, Diff: 0.0]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.0 ms]
+   [Clear CT: 0.1 ms]
+   [Other: 1.4 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 1.0 ms]
+      [Ref Enq: 0.0 ms]
+      [Redirty Cards: 0.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.1 ms]
+   [Eden: 92.0M(92.0M)->0.0B(107.0M) Survivors: 2048.0K->6144.0K Heap: 192.6M(512.0M)->104.1M(512.0M)]
+Heap after GC invocations=19 (full 0):
+ garbage-first heap   total 524288K, used 106624K [0x00000007a0000000, 0x00000007a0101000, 0x00000007c0000000)
+  region size 1024K, 6 young (6144K), 6 survivors (6144K)
+ Metaspace       used 58665K, capacity 61242K, committed 62208K, reserved 1103872K
+  class space    used 6952K, capacity 7458K, committed 7680K, reserved 1048576K
+}
+ [Times: user=0.03 sys=0.02, real=0.01 secs] 
